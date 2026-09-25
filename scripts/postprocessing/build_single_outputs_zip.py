@@ -7,7 +7,7 @@ zip shippable; they remain available per building type in the
 import zipfile
 from pathlib import Path
 
-REPO = Path(r"c:\dev\SWHC062-03")
+REPO = Path(__file__).resolve().parents[2]
 MEAS = REPO / "commercial measures" / "SWHC062-03 Occupancy Fan Controller"
 DEST = REPO / "eTRM deliverables" / "SWHC062 Energy Models Outputs 2026-09-12.zip"
 KEEP = {"instance.idf", "instance-out.err", "instance-tbl.htm"}

@@ -14,7 +14,7 @@ import time
 import zipfile
 from pathlib import Path
 
-REPO = Path(r"c:\dev\SWHC062-03")
+REPO = Path(__file__).resolve().parents[2]
 PY = str(REPO / r".venv\Scripts\python.exe")
 MEAS = REPO / "commercial measures" / "SWHC062-03 Occupancy Fan Controller"
 DT = REPO / "scripts" / "data transformation"

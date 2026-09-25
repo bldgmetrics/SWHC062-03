@@ -18,7 +18,7 @@ import sys
 import time
 from pathlib import Path
 
-REPO = Path(r"c:\dev\SWHC062-03")
+REPO = Path(__file__).resolve().parents[2]
 MEAS_REL = Path("commercial measures") / "SWHC062-03 Occupancy Fan Controller"
 EX = REPO / MEAS_REL / "SWHC062-03 Occupancy Fan Controller_Ex"
 HTL = REPO / MEAS_REL / "SWHC062-03 Occupancy Fan Controller_Htl_Ex"

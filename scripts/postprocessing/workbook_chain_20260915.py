@@ -8,7 +8,8 @@ import subprocess
 import sys
 import time
 
-REPO = r"c:\dev\SWHC062-03"
+import os as _os
+REPO = _os.path.dirname(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))))
 PY = os.path.join(REPO, r".venv\Scripts\python.exe")
 PP = os.path.join(REPO, "postprocess")
 MEAS = os.path.join(REPO, r"commercial measures\SWHC062-03 Occupancy Fan Controller")

@@ -12,13 +12,14 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-sys.path.insert(0, r"c:\dev\SWHC062-03\scripts")
+REPO = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(REPO / "scripts"))
 from result2 import get_deer_peak_multipliers  # noqa: E402
 
-MEASURE = Path(r"C:\dev\SWHC062-03\commercial measures\SWHC062-03 Occupancy Fan Controller")
+MEASURE = REPO / "commercial measures" / "SWHC062-03 Occupancy Fan Controller"
 RUNS_DIRS = [MEASURE / "SWHC062-03 Occupancy Fan Controller_Ex" / "runs",
              MEASURE / "SWHC062-03 Occupancy Fan Controller_Htl_Ex" / "runs"]
-OUT = Path(r"C:\dev\SWHC062-03\postprocess\Deer Peak - Electric.csv")
+OUT = REPO / "postprocess" / "Deer Peak - Electric.csv"
 ELEC = "Electricity:Facility [J](Hourly)"
 TEMP = "Environment:Site Outdoor Air Drybulb Temperature [C](Hourly)"
 
