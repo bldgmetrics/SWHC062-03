@@ -33,7 +33,11 @@ EXCLUDE_DIR_NAMES = {".git", ".claude", ".venv", ".vscode", "__pycache__",
 EXCLUDE_DIR_PREFIXES = ("runs", "instance0", "SWHC062 Review Package")
 EXCLUDE_FILE_NAMES = {"sim_hourly_wb.csv", "sim_hourly_eu.csv", "sim_annual.csv",
                       "current_msr_mat.csv", "results-summary.csv",
-                      "results-profile-elec.csv", "results-profile-gas.csv"}
+                      "results-profile-elec.csv", "results-profile-gas.csv",
+                      # generated postprocess outputs (not model inputs)
+                      "Summary-Report-all.csv", "Deer_Peak_-_Electric-all.csv",
+                      "Deer Peak - Electric.csv", "Measure Off-hour2.csv",
+                      "Summary-Report.csv", "Deer Peak.csv"}
 #small stash files copied into the postproc package under "data transformation/"
 STASH_SCRIPTS = ["Com.py", "run_com_by_bldgtype.py", "make_mfmcmn_dupes.py",
                  "fix_cedars_techid.py", "package_8760_for_pge.py",
@@ -62,7 +66,8 @@ def build_inputs(dest: Path):
             for f in files:
                 rel = (rel_root / f).as_posix()
                 if (f in EXCLUDE_FILE_NAMES or f.startswith(("simdata", "CEDARS_", "~$", "htl_run"))
-                        or f.endswith((".zip", ".log", ".err", ".pyc", ".bak"))):
+                        or f.endswith((".zip", ".log", ".err", ".pyc", ".bak"))
+                        or f.endswith("_updated.xlsx")):
                     continue
                 zf.write(rootp / f, rel)
                 count += 1

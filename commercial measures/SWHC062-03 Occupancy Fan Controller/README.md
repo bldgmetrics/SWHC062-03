@@ -147,3 +147,24 @@ eTRM deliverable packages: `scripts/postprocessing/build_etrm_swhc062.py`
   efficiency, furnace efficiency); `_Ex` re-ran the 1,920 affected runs.
 - 2026-08-23: `_Htl_Ex` re-ran its 128 affected runs; all QC outputs and
   deliverables regenerated from the updated 10,240-run set.
+- 2026-09-15: revised the M3/M5 measure cases again — the intermittent-fan
+  Base 3 and Base 5 offerings now model only the OFC fan-off-delay savings
+  (cooling/HP COP and furnace efficiency reverted to the base values); the
+  efficiency credit for Base 1/2/4 moves to the post-processor via the
+  updated savings workbook (constants U1:AD2 of
+  `SWHC062_Energy_Savings_Calculations_20260915.xlsx`). The cases carry a
+  `#` in the skip column for M1/M2/M4 so ModelKit re-runs only M3 and M5
+  (4,096 runs). Both studies re-simulated; all QC outputs, CEDARS/8760
+  load shapes, and the savings workbook regenerated. Full step-by-step in
+  `ReadMe SWHC062 rev 2.docx`.
+
+## Reproducing the post-run pipeline
+
+`scripts/postprocessing/regen_and_pipeline.py` runs the full chain after a
+re-sim: Com per building type -> MFmCmn dupes -> real TechIDs -> CEDARS
+8760s-by-CZ -> PGE 8760 zips -> QC (summary/hourly/peak) -> simdata. The
+savings workbook is built by `workbook_chain_20260915.py`
+(make_deer_peak_electric -> build_all_files -> make_measure_off_hour ->
+com_energy_savings_calc, then the Measure Off-hour tab). Final deliverables
+are assembled by `final_packages_20260915.py` (Inputs / Outputs /
+Postprocessed) and `build_single_outputs_zip.py` (one combined Outputs zip).

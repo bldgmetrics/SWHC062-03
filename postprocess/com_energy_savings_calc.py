@@ -53,8 +53,8 @@ tabs; it does not touch or recompute any formulas.
 import openpyxl
 import pandas as pd
 
-WORKBOOK_IN = "SWHC062_Energy_Savings_Calculations_20260818.xlsx"
-WORKBOOK_OUT = "SWHC062_Energy_Savings_Calculations_20260827_updated.xlsx"
+WORKBOOK_IN = "SWHC062_Energy_Savings_Calculations_20260915.xlsx"
+WORKBOOK_OUT = "SWHC062_Energy_Savings_Calculations_20260915_updated.xlsx"
 SUMMARY_CSV = "Summary-Report-all.csv"
 PEAK_CSV = "Deer_Peak_-_Electric-all.csv"
 

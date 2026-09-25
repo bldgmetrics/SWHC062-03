@@ -12,7 +12,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-sys.path.insert(0, r"C:\DEER-Prototypes-EnergyPlus\scripts")
+sys.path.insert(0, r"c:\dev\SWHC062-03\scripts")
 from result2 import get_deer_peak_multipliers  # noqa: E402
 
 MEASURE = Path(r"C:\dev\SWHC062-03\commercial measures\SWHC062-03 Occupancy Fan Controller")

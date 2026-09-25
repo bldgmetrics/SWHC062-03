@@ -52,3 +52,8 @@ scripts/data transformation/CEDARS_long_ls_DMo.csv
 scripts/data transformation/CEDARS_long_ls_Com.csv
 scripts/data transformation/CEDARS_long_ls_*.csv
 scripts/data transformation/CEDARS_long_ls_*.zip
+
+# 09-15 rerun: working copies and filled deliverables (regenerable)
+postprocess/hourly_results/
+*_updated.xlsx
+scripts/postprocessing/_incident_recovery/
